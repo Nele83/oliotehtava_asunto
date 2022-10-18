@@ -1,0 +1,69 @@
+
+using System.Text;
+
+internal class Program
+{
+    class Asunto //on perus luokka(kantaluokka)
+    {
+        public float pinta_ala; //Asunnon erilaiset ominaisuudet ovat julkisija jotta voin käyttää niitä
+        public int huoneita;             //nämä ovat normaalit attribuutit Asunto luokassa
+        public float vuokra;
+        public string vapaana;
+
+        public Asunto(string v1, string v2)
+        {
+            V1 = v1;
+            V2 = v2;
+        }
+
+        public Asunto(float aPinta_ala, int aHuoneita, float aVuokra, string aVapaana)
+        {
+            this.pinta_ala = aPinta_ala;
+            this.huoneita = aHuoneita;
+            this.vuokra = aVuokra;
+            this.vapaana = aVapaana;
+        }
+
+        public string V1 { get; }//En ymmärrä näistä
+        public string V2 { get; }
+    }
+    public void PrintBase()  //menetelmä (printbase=tulosta pohja) tulostaa kantaluokan arvot
+    {
+        Console.WriteLine("Pinta-ala = " + "m²");
+        Console.WriteLine("Huoneiden lukumäärä = " + "kpl");
+        Console.WriteLine("Vuokra = " + "€");
+    }
+
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Oliotehtävä 4\nNele Neuhof\n");
+        Console.WriteLine("Asunnon tiedot\n--------------");
+
+        
+        //instantiointi
+        Asunto kujatie = new Asunto("kolmio", "60 "); //sunto("Kolmehuonetta ja keittijö");/*esiintymän luominen nimeltään mehujaa*/
+        kujatie.pinta_ala = 58.5f;/*joukko erilaisia parametreja*/
+        kujatie.huoneita = 3;
+        kujatie.vuokra = 1212.99f;
+
+        string haluaa;
+        
+
+        Console.OutputEncoding = Encoding.UTF8;//antaa € merkin näkyviin
+
+        Console.WriteLine("Pinta-ala = " + kujatie.pinta_ala + "m²\nHuoneiden lukumäärä = " + kujatie.huoneita + "kpl\nVuokra = " + kujatie.vuokra + "€\n");
+        Console.WriteLine("Haluaisitko tarkistaa onko tämän asunto varattavissa? Vastaa K (kyllä) E (Ei) ");
+        haluaa = Console.ReadLine();
+        
+        if (haluaa == "K" || haluaa == "k")
+        {
+            Console.WriteLine("Asunto on varattu.");
+        }    
+        else if (haluaa == "E" || haluaa == "e")
+        {
+            Console.WriteLine("Mukavaa päivänjatkoa!");
+        }
+        Console.ReadKey();      
+    }
+    
+}
